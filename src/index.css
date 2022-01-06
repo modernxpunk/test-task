@@ -1,13 +1,90 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.board {
+    --borderBoard: 1px;
+    --boardWidth: 300px;
+    --boardHeight: 300px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.wrapper {
+    min-height: 100vh;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modes {
+    width: 100%;
+    border: 2px solid black;
+}
+
+.start {
+    width: 80%;
+    margin-left: 15px;
+    height: 50px;
+    text-transform: uppercase;
+}
+
+.board {
+    border: var(--borderBoard) solid black;
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(var(--boardWidth) + 2 * var(--borderBoard));
+    height: calc(var(--boardHeight) + 2 * var(--borderBoard));
+    margin-top: 30px;
+}
+
+.rows {
+    display: flex;
+}
+
+.cell {
+    border: var(--borderBoard) solid black;
+    background-color: white;
+}
+
+.cell:hover {
+    filter: brightness(90%);
+    transition: .2s;
+}
+
+.cell__blue {
+    background-color: deepskyblue;
+}
+
+.logs {
+    margin-left: 50px;
+    overflow: auto;
+    max-height: 382px;
+}
+
+.log {
+    background-color: oldlace;
+    color: sienna;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 15px 10px;
+    border: 2px solid papayawhip;
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+    .app {
+        flex-direction: column;
+    }
+    
+    .logs {
+        margin-top: 30px;
+        margin-left: 0px;
+    }
 }

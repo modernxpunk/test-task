@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './reset.css'
+import './index.css'
+import { useState } from 'react';
+import Logs from './components/Logs';
+import Game from './components/Game';
 
 function App() {
+  const [hoverCells, setHoverCells] = useState({})
+  const [selectLen, setSelectedLen] = useState("")
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <div className='app'>
+        <Game
+          selectLen={selectLen}
+          hoverCells={hoverCells}
+          setHoverCells={setHoverCells}
+          setSelectedLen={setSelectedLen}
+        />
+        <Logs hoverCells={hoverCells} />
+      </div>
     </div>
   );
 }
